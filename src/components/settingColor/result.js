@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import '../../styles/Result.css'
+import React, { Component } from 'react'
 
 export default class Result extends Component {
   constructor(props) {
