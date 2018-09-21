@@ -16,6 +16,8 @@ export default class App extends Component {
       return <Main />
     else if (this.state.type == 'form')
       return <Form />
+    else
+      return <Main />
   }
 
   change() {
