@@ -5,7 +5,6 @@ import Main from './settingColor/main';
 import Form from './form/form';
 import Manager from './manager/manager'
 import TranningRedux from './redux/traningRedux'; 
-import redux from './redux/redux';
 
 export default class App extends Component {
   constructor(props) {
