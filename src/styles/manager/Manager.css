@@ -1,0 +1,48 @@
+.manager {
+  display: flex;
+  height: 100vh;
+}
+.table {
+  background-color: yellow; 
+  width: 100%;
+  padding: 10px;
+}
+.btn {
+  margin-right: 10px;
+  height:30px;
+  width: 100px;
+  background-color: pink;
+}
+.inputSearch {
+  margin-top: 10px;
+}
+.container {
+  padding: 10px;
+  width: 300px;
+  background-color: antiquewhite;
+}
+.AddInput {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.input {
+  height: 30px;
+  width: 150px;
+  margin-right: 4px;
+}
+.select {
+  height: 30px;
+}
+th{
+  width: 250px;
+  height: 30px;
+  background-color: blueviolet;
+  text-align: left;
+}
+td {
+  border: 1px solid black;
+  height: 30px;
+}
+

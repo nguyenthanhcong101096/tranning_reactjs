@@ -3,19 +3,25 @@ import logo from '../assets/logo.svg';
 import '../styles/App.css';
 import Main from './settingColor/main';
 import Form from './form/form';
+import Manager from './manager/manager'
+
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      type: 'form'
+      type: 'manager'
     }
   }
 
   renderView() {
-    if (this.state.type == 'settingColor')
+    const { type } = this.state
+
+    if (type == 'settingColor')
       return <Main />
-    else if (this.state.type == 'form')
+    else if (type == 'form')
       return <Form />
+    else if (type == 'manager')
+      return <Manager />
     else
       return <Main />
   }
