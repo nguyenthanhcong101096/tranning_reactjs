@@ -6,14 +6,14 @@ export default class Table extends Component {
   }
 
   renderRow() {
-    const { list } = this.props
+    var { list } = this.props
     var arr = []
     list.map((ele, index) => {
       arr.push(
         <tr key={index}>
           <td>{ele.id}</td>
           <td>{ele.name}</td>
-          <td>{ele.status}</td>
+          <td>{ele.status ? 'Active' : 'Hidden'}</td>
           <td>
             <button
             style = {{backgroundColor: 'blue'}}

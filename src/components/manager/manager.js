@@ -6,14 +6,15 @@ import '../../styles/manager/Manager.css'
 export default class Main extends Component {
   constructor(props) {
     super(props)
+    this.addTask = this.addTask.bind(this)
     this.state = {
       addTask: false,
       listTask: [
-        { id: 1, name: 'Learn Angular 4', status: 'Active' },
-        { id: 2, name: 'Learn ReactJs  ', status: 'Active' },
-        { id: 3, name: 'Learn PHP 4', status: 'Hidden' },
-        { id: 4, name: 'Learn Toiec ', status: 'Hidden' },
-        { id: 5, name: 'Learn Ruby', status: 'Active' },
+        { id: 1, name: 'Learn Angular 4', status: true },
+        { id: 2, name: 'Learn ReactJs  ', status: true },
+        { id: 3, name: 'Learn PHP 4', status: false },
+        { id: 4, name: 'Learn Toiec ', status: false },
+        { id: 5, name: 'Learn Ruby', status: true },
       ]
     }
   }
@@ -21,6 +22,13 @@ export default class Main extends Component {
   openNewTask() {
     this.setState(prevState => ({
       addTask: !prevState.addTask
+    }))
+  }
+
+
+  addTask(data) {
+    this.setState(prevState => ({
+      listTask: prevState.listTask.concat(data)
     }))
   }
 
@@ -53,7 +61,7 @@ export default class Main extends Component {
     const { listTask, addTask } = this.state;
     return (
       <div className="manager">
-        <Add addTask={addTask} />
+        <Add addTask={addTask} add={this.addTask} />
         <div className="table">
           {this.renderSearch()}
           <Table list={listTask} />

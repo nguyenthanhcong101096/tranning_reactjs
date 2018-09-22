@@ -3,7 +3,19 @@ import React, { Component } from 'react';
 export default class Add extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      name: undefined,
+      status: 0,
+      id: 1,
+    }
+  }
 
+  onHandleChange(event) {
+    var target = event.target
+    var name = target.name
+    var value = target.value;
+
+    this.setState({ [name]: value })
   }
 
   render() {
@@ -15,22 +27,29 @@ export default class Add extends Component {
           <div className="AddInput" >
             <h5 style={{ marginRight: 10 }}>Name</h5>
             <input
+              onChange={(event) => { this.onHandleChange(event) }}
               className="input"
               placeholder='Name of task'
-              name='txtTask'
+              name='name'
               type='text' />
           </div>
 
           <div className="AddInput">
             <h5 style={{ marginRight: 10 }}>Status</h5>
-            <select className="select">
-              <option>Active</option>
-              <option>Hidden</option>
+            <select
+              name='status'
+              value={this.state.status}
+              onChange={(event) => { this.onHandleChange(event) }}
+              className="select">
+              <option
+                value={1}>Active</option>
+              <option
+                value={0}>Hidden</option>
             </select>
           </div>
 
           <div>
-            <button className="btn">Save</button>
+            <button onClick={() => { this.props.add(this.state) }} className="btn">Save</button>
             <button className="btn">Cancel</button>
           </div>
         </div>
