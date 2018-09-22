@@ -4,12 +4,14 @@ import '../styles/App.css';
 import Main from './settingColor/main';
 import Form from './form/form';
 import Manager from './manager/manager'
+import TranningRedux from './redux/traningRedux'; 
+import redux from './redux/redux';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      type: 'manager'
+      type: 'redux'
     }
   }
 
@@ -22,6 +24,8 @@ export default class App extends Component {
       return <Form />
     else if (type == 'manager')
       return <Manager />
+    else if (type == 'redux')
+      return <TranningRedux />
     else
       return <Main />
   }
