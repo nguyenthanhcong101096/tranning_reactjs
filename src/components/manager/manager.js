@@ -3,10 +3,16 @@ import Add from './add';
 import Table from './table';
 import '../../styles/manager/Manager.css'
 
+const min = 1;
+const max = 100;
+var rand = min + Math.random() * (max - min);
+
 export default class Main extends Component {
   constructor(props) {
     super(props)
     this.addTask = this.addTask.bind(this)
+    this.deleteTask = this.deleteTask.bind(this)
+    this.editTask = this.editTask.bind(this)
     this.state = {
       addTask: false,
       listTask: [
@@ -27,9 +33,35 @@ export default class Main extends Component {
 
 
   addTask(data) {
+    if (data.name == null) return
+
+    const task = { id: rand, name: data.name, status: data.status }
     this.setState(prevState => ({
-      listTask: prevState.listTask.concat(data)
+      listTask: prevState.listTask.concat(task)
     }))
+  }
+
+
+  deleteTask(ele) {
+    var list = this.state.listTask
+    var index = list.indexOf(ele)
+    delete list[index]
+    this.setState({ listTask: list })
+  }
+
+  editTask(data) {
+    const task = { id: rand, name: data.name, status: data.status }
+
+    var list = this.state.listTask
+    list.map((ele, i) => {
+      if (ele.id == data.id) {
+        var index = list.indexOf(ele)
+        delete list[index]
+        this.setState(prevState => ({
+          listTask: list.concat(task)
+        }))
+      }
+    })
   }
 
   renderSearch() {
@@ -37,7 +69,7 @@ export default class Main extends Component {
       <div >
         <button
           onClick={() => { this.openNewTask() }}
-          className="btn">Add Task
+          className="btn">{this.state.addTask ? 'Close add' : 'Add Task'}
         </button><br />
         <div className="inputSearch">
           <input
@@ -59,12 +91,13 @@ export default class Main extends Component {
 
   render() {
     const { listTask, addTask } = this.state;
+
     return (
       <div className="manager">
         <Add addTask={addTask} add={this.addTask} />
         <div className="table">
           {this.renderSearch()}
-          <Table list={listTask} />
+          <Table list={listTask} delete={this.deleteTask} edit={this.editTask} />
         </div>
       </div>
     );

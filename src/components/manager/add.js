@@ -5,8 +5,7 @@ export default class Add extends Component {
     super(props)
     this.state = {
       name: undefined,
-      status: 0,
-      id: 1,
+      status: 0
     }
   }
 
@@ -50,7 +49,6 @@ export default class Add extends Component {
 
           <div>
             <button onClick={() => { this.props.add(this.state) }} className="btn">Save</button>
-            <button className="btn">Cancel</button>
           </div>
         </div>
       );
