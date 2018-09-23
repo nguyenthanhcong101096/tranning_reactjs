@@ -45,3 +45,9 @@ Index.js :  import { createStore } from 'redux';
 ```
 npm install react-router-dom --save
 ```
+
+## Spring 6
+#### Practice connect api with axios
+```
+npm install axios --save
+```
