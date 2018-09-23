@@ -4,13 +4,14 @@ import '../styles/App.css';
 import Main from './settingColor/main';
 import Form from './form/form';
 import Manager from './manager/manager'
-import TranningRedux from './redux/traningRedux'; 
+import TranningRedux from './redux/traningRedux';
+import Router from './router/trainning_router';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      type: 'redux'
+      type: 'router'
     }
   }
 
@@ -25,6 +26,8 @@ export default class App extends Component {
       return <Manager />
     else if (type == 'redux')
       return <TranningRedux />
+    else if (type == 'router')
+      return <Router />
     else
       return <Main />
   }

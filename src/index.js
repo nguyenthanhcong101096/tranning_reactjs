@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components/utils';
+import Router from './components/router/trainning_router';
 import registerServiceWorker from './registerServiceWorker';
 
 // track bugs
@@ -22,7 +23,7 @@ const store = createStore(myReducer)
 ReactDOM.render(
   <ErrorBoundary>
     <Provider store={store}>
-      <App />
+      <Router />
     </Provider>
   </ErrorBoundary>,
   document.getElementById('root')
