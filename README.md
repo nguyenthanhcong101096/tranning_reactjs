@@ -51,3 +51,12 @@ npm install react-router-dom --save
 ```
 npm install axios --save
 ```
+```
+src
+ |--services
+ |    |--urls.js : contains the urls api
+ |    |            example: export const getusers = 'htpp://xxxx.com'
+ |    |--call.js : use axios call api
+ |--components
+ |    |--app.js : call api from folder services
+```
