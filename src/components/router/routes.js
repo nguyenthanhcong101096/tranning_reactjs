@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/params',
     exact: true,
-    main: ({ match }) => <ParamsUrl match={match} />
+    main: ({ match, location }) => <ParamsUrl match={match} location={location} />
   },
   {
     path: '/params/:slug',

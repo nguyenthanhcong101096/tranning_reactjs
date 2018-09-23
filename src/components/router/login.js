@@ -11,15 +11,17 @@ export default class Login extends Component {
 
   onLogin(eve) {
     eve.preventDefault();
-    console.log(this.state.username)
   }
 
   render() {
-    var { location } = this.props
-    console.log(location)
-    
     if (this.state.username == 'admin') {
-      return <Redirect to="/contact" />
+      var { location } = this.props
+      return <Redirect to={{
+        pathname: '/params',
+        state: {
+          from: location
+        }
+      }} />
     }
 
     return (

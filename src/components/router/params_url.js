@@ -14,9 +14,10 @@ export default class ParamsUrl extends Component {
       { id: 3, name: 'user3', company: '1pacvn', slug: '1pac-tokyo' }
     ]
 
-    var { match } = this.props // variable get params in url
+    var { match, location } = this.props // variable get params in url
     var url = match.url;
-
+    console.log(location)
+    
     return (
       <div>
         <h1>Get params url</h1>
