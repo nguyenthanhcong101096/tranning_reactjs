@@ -23,7 +23,7 @@ const store = createStore(myReducer)
 ReactDOM.render(
   <ErrorBoundary>
     <Provider store={store}>
-      <Router />
+      <App />
     </Provider>
   </ErrorBoundary>,
   document.getElementById('root')
