@@ -6,12 +6,13 @@ import Form from './form/form';
 import Manager from './manager/manager'
 import TranningRedux from './redux/traningRedux';
 import Router from './router/trainning_router';
+import Api from './api/api';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      type: 'router'
+      type: 'api'
     }
   }
 
@@ -28,6 +29,8 @@ export default class App extends Component {
       return <TranningRedux />
     else if (type == 'router')
       return <Router />
+    else if (type == 'api')
+      return <Api />
     else
       return <Main />
   }
